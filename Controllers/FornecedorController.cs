@@ -83,6 +83,11 @@ namespace ApiFornecedores.Controllers
         public IActionResult GetOne(Guid id)
         {
             var fornecedor = fornecedorRepository.ObterFornecedor(id);
+            if (fornecedor == null)
+            {
+                return NotFound(
+                    new { mensagem = "Fornecedor não encontrado." });
+            }
 
             return Ok(fornecedor);
         }
