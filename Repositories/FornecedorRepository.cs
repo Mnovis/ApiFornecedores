@@ -28,6 +28,7 @@ namespace ApiFornecedores.Repositories
                         CNPJ = @Cnpj,
                         EMAIL = @Email,
                         TELEFONE = @Telefone
+                      WHERE ID = @Id
                       """;
 
             using (var connection = new SqlConnection(connectionString))
