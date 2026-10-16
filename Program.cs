@@ -1,3 +1,4 @@
+using ApiFornecedores.Repositories;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,14 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1"
     });
 });
+
+#endregion
+
+#region Injeções de dependência
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddScoped(map => new FornecedorRepository(connectionString!));
 
 #endregion
 
