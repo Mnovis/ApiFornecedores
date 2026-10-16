@@ -9,8 +9,8 @@ namespace ApiFornecedores.Repositories
         public void Cadastrar(Fornecedor fornecedor)
         {
             var sql = """
-                      INSERT INTO FORNECEDORES(NOME, CNPJ, EMAIL, TELEFONE)
-                      VALUES(@Nome, @Cnpj, @Email, @Telefone)
+                      INSERT INTO FORNECEDORES(ID, NOME, CNPJ, EMAIL, TELEFONE, DATACADASTRO)
+                      VALUES(@Id, @Nome, @Cnpj, @Email, @Telefone, @DataCadastro)
                       """;
 
             using (var connection = new SqlConnection(connectionString))
